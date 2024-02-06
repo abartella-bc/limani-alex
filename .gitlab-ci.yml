@@ -33,6 +33,7 @@ coverity:
 
 blackduck:
   stage: scan
+  image: openjdk:latest
   before_script:
     - apt-get update && apt-get install bash curl
   script:
@@ -42,7 +43,9 @@ blackduck:
       --blackduck.trust.cert=true
       --blackduck.offline.mode=false
       --detect.project.codelocation.unmap=true
-      --detect.tools=SIGNATURE_SCAN,IMPACT_ANALYSIS,DETECTOR
+      --detect.project.name="limani"
+      --detect.project.version.name="24.2.0"
+      --detect.tools=SIGNATURE_SCAN,IMPACT_ANALYSIS,DETECTOR,DOCKER
       --detect.blackduck.signature.scanner.individual.file.matching=ALL
       --detect.blackduck.signature.scanner.license.search=true
       --detect.impact.analysis.enabled=true
