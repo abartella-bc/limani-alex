@@ -33,9 +33,11 @@ coverity:
 
 blackduck:
   stage: scan
-  image: openjdk:latest
+  image: bullseye-slim:11
   before_script:
     - apt-get update && apt-get install bash curl
+    - apt-get install openjdk-11-jdk
+    - java -version
   script:
     - bash <(curl -s -L https://detect.synopsys.com/detect8.sh)
       --blackduck.url=${BLACKDUCK_URL}
