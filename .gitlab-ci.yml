@@ -33,7 +33,7 @@ coverity:
 
 blackduck:
   stage: scan
-  image: bullseye-slim:11
+  image: debian:bullseye-slim
   before_script:
     - apt-get update && apt-get install bash curl
     - apt-get install openjdk-11-jdk
