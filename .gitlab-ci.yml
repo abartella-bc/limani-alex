@@ -35,7 +35,7 @@ blackduck:
   stage: scan
   image: debian:bullseye-slim
   before_script:
-    - apt-get update && apt-get install bash curl
+    - apt-get update && apt-get install -y bash curl
     - apt-get install -y openjdk-11-jdk
     - java -version
   script:
