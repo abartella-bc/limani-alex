@@ -36,7 +36,7 @@ blackduck:
   image: debian:bullseye-slim
   before_script:
     - apt-get update && apt-get install bash curl
-    - apt-get install openjdk-11-jdk
+    - apt-get install -y openjdk-11-jdk
     - java -version
   script:
     - bash <(curl -s -L https://detect.synopsys.com/detect8.sh)
